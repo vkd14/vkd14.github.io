@@ -290,13 +290,9 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-/* Reveal: starts hidden, JS adds .visible on scroll. Fallback: auto-show after 1s if JS fails */
 .reveal { 
-  opacity: 0; transform: translateY(24px); 
-  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  animation: fadeUp 0.8s 0.5s forwards;
+  opacity: 1;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); animation: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
