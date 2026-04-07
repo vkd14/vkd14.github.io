@@ -290,8 +290,13 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* Reveal: starts hidden, JS adds .visible on scroll. Fallback: auto-show after 1s if JS fails */
+.reveal { 
+  opacity: 0; transform: translateY(24px); 
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); animation: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -348,7 +353,7 @@ footer {
     </div>
     </div>
     <div class="hero-photo">
-      <img src="photo.jpg" alt="Varun Kumar Dasoju">
+      <img src="photo.jpg" alt="Varun Kumar Dasoju" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#e8f0f7,#dce8f0);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:4rem;color:#0f4c75\'>VD</div>'">
     </div>
   </div>
 </section>
